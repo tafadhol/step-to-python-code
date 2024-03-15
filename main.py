@@ -1,9 +1,10 @@
 """
 halaman utama code python
+Gempa terupdate dari BMKG
 """
-from gempa_terupdate import ekstraksi_data, tampilkan_data
+import gempa_terupdate
 
 if __name__=='__main__':
   print ('Aplikasi utama')
-  result = ekstraksi_data()
-  tampilkan_data(result)
+  result = gempa_terupdate.ekstraksi_data()
+  gempa_terupdate.tampilkan_data(result)

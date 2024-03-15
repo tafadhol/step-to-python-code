@@ -1,3 +1,6 @@
+import requests
+from bs4 import BeautifulSoup
+
 def ekstraksi_data():
     """
     tanggal : 29 Februari 2024, 00:44:36 WIB
@@ -9,23 +12,28 @@ def ekstraksi_data():
     :return:
     """
 
+    content = requests.get('https://bmkg.go.id')
+    print(content)
+    # soup = BeautifulSoup(content)
+    # print(soup.prettify())
+
     hasil= dict()
     hasil['tanggal']='29 Februari 2024'
     hasil['waktu']='00:44:36 WIB'
     hasil['kedalaman']='14 Km WIB'
     hasil['lokasi']={'lu': 5.14, 'bt': 94.70}
-    hasil['pusat_gempa']='pusat gempa berada di laut 101 km BaratDaya TANTHO-ACEH BESAR'
+    hasil['pusat_gempa']='pusat  gempa berada di laut 101 km BaratDaya TANTHO-ACEH BESAR'
     hasil['dirasakan']='Dirasakan (skala MMI): II Banda aceh'
-
-
-    return hasil
-
-
+   return hasil
+   
 def tampilkan_data(result):
-    print('gempa terkini berdasarkan BMKG')
+    print('gempa terbaru berdasarkan BMKG')
     print(f"Tanggal {result['tanggal']}")
     print(f"Waktu {result['waktu']}")
     print(f"Kedalaman {result['kedalaman']}")
     print(f"Lokasi : LU= {result['lokasi']['lu']}, BT= {result['lokasi']['bt']}")
     print(f"Pusat_gempa {result['pusat_gempa']}")
     print(f"Dirasakan {result['dirasakan']}")
+
+# if __name__=='__main__':
+#     print('ini adalah packet gempa terkini')
